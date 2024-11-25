@@ -1,0 +1,178 @@
+TCS - CKA
+
+
+*************************
+Day - 1 | 25th Nov. 2025 
+*************************
+
+
+	Introduction to Kubernetes 
+	
+	Lab Environment - AWS Free Tier Account
+		- https://aws.amazon.com/console/
+		
+		- Create Free Tier Account 
+		
+			- 12 Months 
+			
+			- Active Email_ID 
+			- Active Mobile Number 
+			- Active Credit/Debit Card 
+	
+	GITHUB Account 	- Manage the Application Source Code / Training Documents
+		- https://github.com/
+	
+	DockerHub Account - Manage the Application Container Images 
+	
+		- https://hub.docker.com/
+		
+	
+
+Topics :
+	
+	- What is Kubernetes ?
+	
+	- Kubernetes Architecture 
+	
+	- Kubernetes Architecture Components 
+	
+	- Kubernetes Concepts and Terminologies
+	
+	- Kubernetes Controller Objects 
+	
+	- Kubernetes Services 
+	
+	- Volumes 
+	
+	- Security
+	
+	- Monitoring 
+	
+	- Trouble shooting
+	
+	
+	- What is Kubernetes ?
+	
+		- Is a Open Source  Container Orchestration Tool
+		
+		
+		Application Architecture :
+		
+			- Monolith Application Architecture
+			
+			- Micro-Service Based Application Architecture 
+				
+				
+				- Java Spring-boot Application 
+				
+					target/mywebapp.war 
+					
+					Dev Environment:		- tomcat_8, jdk11	- mywebapp.war 
+					
+					QA Environment			- tomcat_10, jdk17	- mywebapp.war 
+					
+					UAT Environment			- tomcat_10, jdk17	- mywebapp.war
+					
+					PROD Environment		- tomcat_10, jdk17	- mywebapp.war
+						10 Prod Servers 
+						
+							50000 users can access my application in parallel
+					
+					
+				- Containerization :
+					- Is a process of packaging the Application Service along with its dependencies
+					
+					
+					Dev Environment(VM) :	Package - (mywebapp.war,tomcat_8, jdk11) - mywebapp_img:v1.0
+											Publish mywebapp_img:v1.0 to DockerHub
+					
+					
+					QA Environment(VM)  : 	Package - (mywebapp.war,tomcat_8, jdk11) - mywebapp_img:v1.0 run as a container
+		
+					UAT Environment(VM)  : 	Package - (mywebapp.war,tomcat_8, jdk11) - mywebapp_img:v1.0 run as a container
+					
+					PROD Environment(VM)  : Package - (mywebapp.war,tomcat_8, jdk11) - mywebapp_img:v1.0 run as a container
+					
+					
+					Container Engine called Docker.
+					
+						- Create Container Images 
+					
+						- Publish the Container Images to Container Registry (DockerHub)
+						
+					Kubernetes - Container Orchestration Tool :::
+					
+						- Kubernetes Is a Open Source  Container Orchestration Tool
+						- It create the replications of pods 
+						- Perform Auto-Scaling 
+						- Perform Load Balancing 
+						- Self-Healing 
+						- Support all types of Container 
+						
+						
+						10 Servers -->  10000 Users 
+										50000 Users 
+										Scale-up the Servers 
+										Scale-Down 
+						
+						10 Servers	--> Desired State 
+						
+						
+					Other Container Orchestration Tools :
+					
+						Docker Swarm 	# It is used only for Docker Container.
+										# Cannot perform Auto-Scaling / Load Balancing 
+										
+										
+						Managed Services :
+						
+							AWS 	-> ECS,ECR,EKS
+							
+							Azure 	-> ACS,ACR,AKS
+							
+							GCP 	-> GCE,GCR,GKE
+							
+					
+	Kubernetes Terminologies :
+
+		- Container Images 		# Is a static file, that defines the properties of Application and its dependencies
+								# Is Non-Executable
+								# Composed of various layer create using Dockerfile Instructions 
+		
+		- Containers			# Containers are the executable units of Container Images
+
+		- Container Engine		# is used to Manage the Containers
+		
+		- Container Registries 	# Is used to save and manage the Container Images 
+								# Dockerhub 
+								# Container Repository 
+									- It is sub-set of Container Registries
+		
+		- Pods					# The smallest/Atomic unit of Schedule  
+		
+		- kubectl 				# It a Command Line Utility to interact with Kubernetes 
+		
+		- kubeadm 				# Is a Command Line Utility used to Administrate the Kubernetes Cluster 
+		
+		- Kubernetes Cluster 	# Collection of WorkNodes. 
+		
+		
+		
+		Kubernetes Architecture :
+		
+			- Client and Server Architecture
+			
+			- Kubernetes_Master 
+			
+				Kubernetes Cluser 
+					- Kubernetes WorkNode1(VM)
+					- Kubernetes WorkNode2(VM)
+					- Kubernetes WorkNode3(VM)
+					
+					
+Next : 
+					
+		Kubernetes Architecture
+		
+		Kubernetes Architecture Components 
+					
