@@ -176,3 +176,180 @@ Next :
 		
 		Kubernetes Architecture Components 
 					
+*************************
+Day - 2 | 27th Nov. 2025 
+*************************
+
+	Kubernetes Architecture
+	
+	Kubernetes Architecture Components 
+	
+	Kubernetes Core Concepts 
+	
+	- ***Installation and Configurations of Kubernetes Architecture
+	
+	
+	Environments ::
+	
+	
+	Non-Prod													Production Environment
+	
+		Dev Environment(VM)
+		
+		Build Environment(VM)
+		
+		Test Environments 
+		
+			QA(VM) 
+			
+			UAT(VM) 						============>				Production Servers(VM)
+																			Prod Server1,2,3,4,5
+	
+	
+
+	Kubernetes Architecture	: Based on Master and WorkerNodes
+	
+		Kubernetes_Master 
+			Kubernetes WorkerNode1
+			Kubernetes WorkerNode2
+			Kubernetes WorkerNode3
+			Kubernetes WorkerNode4
+			Kubernetes WorkerNode5
+	
+	
+	
+	VM in AWS Clound -> 
+	
+		Instance Type -> 1 CPU & 1GB RAM 
+		
+						 2 CPUs & 4 GB RAM		WN1 --> 10 Pods -> 500MB 
+						 
+						 80% CPU/RAM 
+						 
+						 
+	Kubernetes Architecture Components ::
+
+		- API Server 
+		
+		- ETCD 
+		
+		- Scheduler
+		
+		- Controller Manager 
+		
+		
+		- Kubelet 
+		
+		- Kube-Proxy 
+		
+		- CRI - Container Runtime Interface 
+				Container-D 
+						 
+		
+		- Kubectl 		# Command Line Utility to interact with Kubernetes
+		
+		
+		- Pods 			# The smallest/Atomic unit of Schedule  
+		
+		
+		3 - Tier Application :	Micro-Service1 --> User Login Server 
+		
+			- Front-End Layer 			
+			- Application Layer 
+			- Back-End DataBase Layer
+			
+	
+	
+		Pod Creation:
+		
+			- Create Manifest File --> 
+			
+				*.yaml 	File Format -==> Key:Value Pairs
+				
+				
+		Kubernetes Installation Process :
+		
+			- https://kubernetes.io/docs/setup/
+			
+			- kubeadm 			# Command line utility to setup and configure Kubernetes
+		
+
+			- Kubernetes_Master(VM)							On-Prem
+			
+				- Kubernetes_Master1(VM)					AWS 
+				
+					Kubernetes Cluser1 						Region1
+						- Kubernetes WorkNode1(VM)
+						- Kubernetes WorkNode2(VM)
+						- Kubernetes WorkNode3(VM)
+						
+					Kubernetes Cluser2						Region2
+						- Kubernetes WorkNode1(VM)
+						- Kubernetes WorkNode2(VM)
+						- Kubernetes WorkNode3(VM)
+
+					Kubernetes Cluser2						Region3
+						- Kubernetes WorkNode1(VM)
+						- Kubernetes WorkNode2(VM)
+						- Kubernetes WorkNode3(VM)
+						
+				- Kubernetes_Master1(VM)					AZURE 
+				
+					Kubernetes Cluser1 						Region1
+						- Kubernetes WorkNode1(VM)
+						- Kubernetes WorkNode2(VM)
+						- Kubernetes WorkNode3(VM)
+						
+					Kubernetes Cluser2						Region2
+						- Kubernetes WorkNode1(VM)
+						- Kubernetes WorkNode2(VM)
+						- Kubernetes WorkNode3(VM)
+
+					Kubernetes Cluser2						Region3
+						- Kubernetes WorkNode1(VM)
+						- Kubernetes WorkNode2(VM)
+						- Kubernetes WorkNode3(VM)
+						
+Next :::
+						
+	Demo :
+	
+		- Kubernetes_Master1(VM)					AWS 
+		
+			Kubernetes Cluser1 						Region1
+				- Kubernetes WorkNode1(VM)
+				- Kubernetes WorkNode2(VM)
+				
+	
+	Concepts :
+	
+		- Pod 
+		
+		- Controller Objects 
+			- Replication Controller 
+			- Replicasets 
+			- DaemonSet 
+			- Deployments 
+			- StatefulSets
+			
+		- Services 
+			- NodePort
+			- ClusterIP 
+			- LoadBalancer 
+				- Ingress Controller 
+			
+		- Volumes 
+			- EmptyDir 
+			- HostPath 
+			- ConfigMap
+			- Secret 
+			- Persistant Volume
+			- Persistant Volume Claim
+			
+		- Monitoring 
+		
+		- Security 
+		
+		- Trouble shooting
+		
+		- Helm Package Manager for Kubernetes
