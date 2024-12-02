@@ -353,3 +353,39 @@ Next :::
 		- Trouble shooting
 		
 		- Helm Package Manager for Kubernetes
+
+
+						
+				
+************************
+Day - 3 | 2nd Dec. 2025 
+************************
+
+	Demo :
+	
+		- Kubernetes_Master1(VM)	
+				- Kubernetes WorkNode1(VM)
+				- Kubernetes WorkNode2(VM)
+				
+				
+				1 VM EC2 Instance 	==> 750 Hrs / Month 
+				
+				10 VMs				==> 75 Hrs / Months
+				
+				
+	
+		- Launch EC2 Instances 
+		
+		- Connect to Nodes using SSH 
+			SSH Agent - Putty / MobaXterm		https://mobaxterm.mobatek.net/download.html
+												https://mobaxterm.mobatek.net/download-home-edition.html
+			
+			- Host Name
+			- User Name 
+			- User Credentials 
+				- Password 
+				- Keys 
+				
+				
+				
+		NodePort to expose pod to internet
