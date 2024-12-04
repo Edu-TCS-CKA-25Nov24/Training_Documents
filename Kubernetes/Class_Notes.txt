@@ -389,3 +389,124 @@ Day - 3 | 2nd Dec. 2025
 				
 				
 		NodePort to expose pod to internet
+
+		
+************************
+Day - 4 | 4th Dec. 2025 
+************************
+
+	- Pod 
+		
+	- Controller Objects 			# To ensure high availability of pods 
+		- Replication Controller 
+		- Replicasets 
+		- DaemonSet 
+		- Deployments
+			
+			
+		webapplnsvc.war		===> 	webapplnsvcImg:v1.0			==> Published to Container Registry
+		
+		pod1 - webapplnsvcImg:v1.0		-> WN1
+		pod2 - webapplnsvcImg:v1.0		-> WN2
+		pod3 - webapplnsvcImg:v1.0		-> WN2
+			
+	- Replication Controller & Replicasets :::
+		
+			- Both RC & RS are used to create replicas of pods.
+			- Both RC & RS are used to deploy specific no. of pod instance.
+				Eg.: Replica = 5 
+			
+			- RS is updated version of RC 
+			
+			- RC uses the Equality based Operator 
+				
+				envi = qa 
+			
+			
+			- RS used the Set Based Operator
+			
+				envi : {QA1,UA2,QA3)
+				
+			- Scale-Up or Scale-Down the pod instances 
+			
+		webapplnsvc.war		===> 	webapplnsvcImg:v1.0			==> Published to Container Registry
+		
+		replicas = 3 
+		pod1 - webapplnsvcImg:v1.0		-> WN1
+		pod2 - webapplnsvcImg:v1.0		-> WN2
+		pod3 - webapplnsvcImg:v1.0		-> WN2			
+		
+		100 users accessing my application at the same time
+		
+		1000 users ?
+			
+			replicas = 30
+			
+	- DaemonSet :
+
+		Replicaset : to deploy the specific no. of pod instance
+		
+		DaemonSet  : to deploy a copy of pods in all the available workernodes
+		
+			Pod1
+		
+			->  KMaster					
+					KWN1	Pod1
+					KWN2	Pod1
+					KWN3	Pod1
+		
+	
+	Deployments :
+		Replicatsets 
+			Pods 
+			
+		- Create Replicas of Pods using Replicaset
+		- Scale-Up the Pod Instances
+		- Scale-Down the Pod Instances
+		- Upgrade 
+		- Downgrade / Rollback
+		
+		- Upgrade and Rollback can be done without any downtime.
+		
+		- Deployment Strategy : Rolling Update Strategy
+		
+		
+		webapplnsvc.war_SNAPSHOT_V1.0		===> 	webapplnsvcImg:v1.0			==> Published to Container Registry
+		
+		replicas = 3 
+		
+		pod1 - webapplnsvcImg:v1.0
+		pod2 - webapplnsvcImg:v1.0
+		pod3 - webapplnsvcImg:v1.0	
+		
+		
+		webapplnsvc.war_SNAPSHOT_V2.0		===> 	webapplnsvcImg:v2.0			==> Published to Container Registry
+
+		replicas = 3 
+		
+		pod1 - webapplnsvcImg:v1.0			===> 	webapplnsvcImg:v2.0
+		pod2 - webapplnsvcImg:v1.0			===> 	webapplnsvcImg:v2.0
+		pod3 - webapplnsvcImg:v1.0			===> 	webapplnsvcImg:v2.0		
+	
+	
+	Volumes :
+	
+		Container Volumes :
+		
+			- Used to maintain the Persistant Data 
+			
+			
+			Stateless Application
+			
+			Stateful Application 
+			
+			
+		emptyDir 				# Is the Default Volume 
+		
+		ConfigMap 
+		
+		Secret 
+		
+		Persistant Volume 
+		
+		Persistant Volume Claim 
