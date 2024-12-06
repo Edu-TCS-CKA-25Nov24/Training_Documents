@@ -510,3 +510,67 @@ Day - 4 | 4th Dec. 2025
 		Persistant Volume 
 		
 		Persistant Volume Claim 
+
+
+************************
+Day - 5 | 5th Dec. 2025 
+************************
+
+	Volumes :
+	
+		ConfigMap Volume 		# Any Data 
+				
+		Secret Volume 			# Data are encrypted.
+								# It can be accessible only within the pod
+		
+		Hostpath Volume			# Same as like Docker Volume 
+								# It will be created at the Node
+		
+		Persistant Volume 
+		
+		Persistant Volume Claim 
+		
+	
+	Services :::
+	
+		- Services 
+			- NodePort				# Expose the pods to internet 
+			- ClusterIP 			# Internal Communication 
+			- LoadBalancer			# Implemented at application level  
+			- Ingress Controller 	# To Reduce the no. of Load Balancer 
+				-> Kubernetes Object 
+				
+				
+				
+			www.google.com			Load Balancer 
+			
+				Map 		
+				translate 
+				drive 
+				mail 
+				
+		Ingress Controller 	 Is used to route the request to the services:
+		
+		Using Ingress Rulesets
+		
+			- Simple Routing 				for any static web page
+			
+			- Host Based Routing 
+			
+			- Path Based Routing 
+			
+
+			www.google.com			Load Balancer 
+			
+				Maps 				www.maps.google.com				Host name 
+				translate 			www.translate.google.com
+				drive 				www.drive.google.com
+				mail 				www.mail.google.com
+				
+				
+			
+			www.mail.google.com
+			
+				inbox 				www.mail.google.com/inbox 		Path Based Routing 
+				Sent				www.mail.google.com/sent 
+				Trash 				www.mail.google.com/trash 
