@@ -574,3 +574,129 @@ Day - 5 | 5th Dec. 2025
 				inbox 				www.mail.google.com/inbox 		Path Based Routing 
 				Sent				www.mail.google.com/sent 
 				Trash 				www.mail.google.com/trash 
+
+
+************************
+Day - 6 | 6th Dec. 2025 
+************************
+
+	# Doubts Clarification Session!
+	
+
+************************
+Day - 7 | 12th Dec. 2025 
+************************
+
+
+	NodePort Service
+	
+	Deployment Controller Object 
+	
+	CICD Pipeline Job 
+
+# banking_app_deploy.yaml
+	
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bankapp-eta-deploy
+  labels:
+    app: bankapp-eta-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: bankapp-eta-app
+  template:
+    metadata:
+      labels:
+        app: bankapp-eta-app
+    spec:
+      containers:
+      - name: bankapp-eta-container
+        image: loksaieta/bankapp-eta-app
+        ports:
+        - containerPort: 8082
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bankapp-eta-np-service
+  labels:
+    app: bankapp-eta-app
+spec:
+  selector:
+    app: bankapp-eta-app
+
+  type: NodePort
+  ports:
+  - nodePort: 31030  
+    port: 8082
+    targetPort: 8082
+	
+	
+	- Namespaces :::
+	
+		-> Is logical Partition of the Kubernetes Cluster
+		
+		-> Team A --> 
+		
+		-> Environment --> 
+		
+		kubectl get all 
+		
+		kubectl get all --all-namespaces
+		
+		-> Dev / QA / UAT 
+		
+		-> Prod 
+		
+		kubectl create namespace uat
+		
+		
+		Deployment Strategy :
+		
+		Implement a major release :
+		
+			Current Version v1.0 is LIVE 			Prod_Server
+			
+		Blue-Green Deployment Strategy :
+
+			Current Version v1.0 is LIVE 			Prod_Server1(BLUE)	==> Make it Inactive 		
+			
+			Current Version v2.0 is LIVE 			Prod_Server2(GREEN)	==> Active Prod_server
+			
+			
+		Kubernetes ::
+		
+			Current Version v1.0 is LIVE 			Kubernetes_PROD_Cluser(WN1,2,3,4,5) - VER1 Namespace - Inactive
+			
+			Current Version v2.0					Kubernetes_PROD_Cluser(WN1,2,3,4,5) - VER2 Namespace - LIVE 
+			
+			
+	
+	
+	- Node Selector: 		# Deploy the pod in specific Node.
+	
+		- Assign the Label to Node1,2,3 
+		
+		- Use that label to deploy the pod 
+		
+		
+	- Monitoring - Prometheus/Grafana
+	
+	- Kubernetes Dashboards :
+	
+	- HELM Chart :
+	
+		--> Is a Package Manager for Kubernetes
+		
+		apt/yum/dnf
+		
+		
+		--> Install Kubernetes Dashboards
+		
+		--> Install Prometheus/Grafana to Monitor Kubernetes Pods
+	
+	
+	
