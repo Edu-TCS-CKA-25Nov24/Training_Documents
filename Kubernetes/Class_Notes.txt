@@ -698,5 +698,180 @@ spec:
 		
 		--> Install Prometheus/Grafana to Monitor Kubernetes Pods
 	
+
+
 	
+		- Assign the Label to Node1,2,3 
+		
+		- Use that label to deploy the pod 
+		
+		
+	- Monitoring - Prometheus/Grafana
+	
+	- Kubernetes Dashboards :
+	
+	- HELM Chart :
+	
+		--> Is a Package Manager for Kubernetes
+		
+		apt/yum/dnf
+		
+		
+		--> Install Kubernetes Dashboards
+		
+		--> Install Prometheus/Grafana to Monitor Kubernetes Pods
+	
+	
+	
+************************
+Day - 8 | 11th Dec. 2025 
+************************
+	
+	Securing Kubernetes :
+	
+		- RBAC - Role Based Access Control 
+		
+		
+	Node Selector :
+	
+		- Used to choose the specfic Workernode(s) for deployment of pods 
+		
+		label 
+			- Assign the Label to the Specific or group of nodes.
+			
+			name : pod1
+			namespace : dev 
+			nodeselector : nodegrp1
+			
+
+
+************************
+Day - 9 | 12th Dec. 2025 
+************************
+
+	Trouble-shooting Kubernetes :
+	
+	
+	Automate CICD pipeline using Docker & Kubernetes 
+	
+	
+	Application :
+	
+	Web Application - Java based.
+	
+		- Create the src_code 
+		- Push the src_code to src_code repo
+	
+	Automate Application Build, Package and deploy to Kubernetes Cluster
+	
+	DevOps Pipeline Starts :
+	
+	CICD Pipelne :
+	
+	Stages :
+	
+		- SCM_Checkout														my_web_app_V1.0
+		- Application Build 
+		- Perform Unit Testing
+		- Package the Application 		# Create Artifacts					my_web_app_SNAPSHOT_V1.0
+		- Publish the Artifacts to Artifactory Libraries 
+		- Create Docker Image 
+		- Publish to Container Registry like DockerHub 						my_web_app_Img:V1.0
+		- Deploy to Kubernetes
+	
+		
+	Infra-Structure Provisioning & Configurations 
+	
+	Monitoring 
+	
+	
+	Resources Infra-Structure:
+	
+		Jenkins_Master 						# Create and schedule the CICD Pipeline projects
+		
+			Jenkins_Slave(Build Server)		# To perform Application Build, Docker Build 
+											# Publish Docker Images to Container Registry 
+											
+										
+		Kubernetes_Master
+			- WorkerNode1
+			- Workernode2
+	
+	
+	Tool :
+	
+		Jenkins_Master 						: jdk, jenkins, git 
+			
+			Jenkins_Slave(Build Server)		: git, jdk, maven, docker.io
+										
+										
+										
+		Kubernetes_Master					: kbeadm,kubectl,....
+			- WorkerNode1
+			- Workernode2
+			
+	CICD Pipelne :
+	
+	Stages :
+	
+		- SCM_Checkout														my_web_app_V1.0
+		- Application Build 
+		- Perform Unit Testing
+		- Package the Application 		# Create Artifacts					my_web_app_SNAPSHOT_V1.0
+		- Publish the Artifacts to Artifactory Libraries 
+		- Create Docker Image 
+		- Publish to Container Registry like DockerHub 						my_web_app_Img:V1.0
+		- Deploy to Kubernetes
+
+
+pipeline {
+    
+    agent { label 'slave1' }
+
+
+	environment {	
+		DOCKERHUB_CREDENTIALS=credentials('dockerloginid')
+	}
+	
+    stages {
+        stage('SCM Checkout') {
+            steps {
+                echo 'Perform SCM Checkout'
+				git 'https://github.com/Edu-TCS-CKA-25Nov24/java-mvn-springbapp.git'
+            }
+        }
+        stage('Application Build') {
+            steps {
+                echo 'Application Build'
+                sh 'mvn clean package'
+                
+            }
+        }
+        stage('Build Docker Image') {
+            steps {
+				sh "docker build -t loksaieta/sk-wd-webapp:${BUILD_NUMBER} ."
+				sh 'docker image list'
+				sh "docker tag loksaieta/sk-wd-webapp:${BUILD_NUMBER} loksaieta/sk-wd-webapp:latest"
+            }
+        }
+		stage('Login2DockerHub') {
+
+			steps {
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
+			}
+		}		
+		stage('Publish_to_Docker_Registry') {
+			steps {
+				sh "docker push loksaieta/sk-wd-webapp:latest"
+			}
+		}		
+        stage('Deploy to Kubernetest Cluster') {
+            steps {
+                script{
+                    sshPublisher(publishers: [sshPublisherDesc(configName: 'Kube_Master', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'kubectl apply -f kubedeploy.yaml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '.', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '*.yaml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                }
+            }
+        }
+    }
+}
 	
