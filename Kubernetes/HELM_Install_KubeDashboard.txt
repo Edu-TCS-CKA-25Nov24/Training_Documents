@@ -69,3 +69,26 @@ https://65.2.63.214:31348/
 
 
 https://3.110.191.175:31730/
+
+
+################################################################################################333333
+
+# Prometheus & Grafana on Kubernetes using Helm 
+
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm search repo prometheus-community
+helm search repo prometheus-community/kube-prometheus-stack
+helm search repo prometheus-community/kube-prometheus-stack --versions
+helm install prometheus prometheus-community/kube-prometheus-stack --version 45.7.1 --namespace monitoring --create-namespace
+kubectl get pods -n monitoring
+kubectl get pods svc
+kubectl get svc
+kubectl get svc -n monitoring
+kubectl edit svc prometheus-operated
+kubectl get svc -n monitoring
+kubectl edit svc prometheus-kube-prometheus-prometheus -n monitoring
+kubectl get svc -n monitoring
+kubectl edit svc prometheus-grafana -n monitoring
+kubectl get svc -n monitoring
+kubectl get secret -n monitoring prometheus-grafana -o jsonpath="{.data.admin-password}" | base64 --decode
+history
