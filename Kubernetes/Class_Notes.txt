@@ -875,3 +875,64 @@ pipeline {
     }
 }
 	
+**************************
+Day - 11 | 16th Dec. 2025 
+**************************
+
+	Monitoring!
+	 
+	 - Kubernetes Logs 
+	 
+	Continuous Monitoring :::
+	
+		- Infra-Structure Monitoring
+		
+		Kubernetes_Cluster 
+			- Kubernetes_WN1,2,3,4,5,6
+			
+			
+		Monitor the CPU & Memory Utilization of Kubernetes Nodes.
+		
+		Prevent the Issue
+		
+	
+	Prometheus/Grafana :::
+	
+		- Prometheus		--> Monitoring Tool 
+		
+		- Grafana 			--> Visualization Tool
+		 
+		Completely Owned by Production Monitoring Team.
+		
+		
+	Architecture of Monitoring Tools :
+	
+		- Client & Server Architecture
+		
+	Install Prometheus/Grafana
+	
+		- Server Level 
+		
+	
+	Kubernetes Cluster : 
+		Kubernetes_WN1,2,3,4,5,6,...............,200
+		
+		
+	Helm -> 
+	
+	At Enterprise Level:
+	
+		Dedicated Monitoring Server : 
+			- Install Prometheus/Grafana 
+		
+	Kubernetes_Cluster Level:
+		Install Prometheus/Grafana using Helm.
+		
+	Working with Helm Chart to Install and Configure Prometheus/Grafana to monitor Kubernetes Cluster 
+	
+	
+	PromQL	--> Prometheus Query Language 
+	
+		- Used to Query the Prometheus Time Series Database.
+	
+
