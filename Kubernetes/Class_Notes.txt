@@ -936,3 +936,92 @@ Day - 11 | 16th Dec. 2025
 		- Used to Query the Prometheus Time Series Database.
 	
 
+	
+
+################################################################################################333333
+
+# Prometheus & Grafana on Kubernetes using Helm 
+
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm search repo prometheus-community
+helm search repo prometheus-community/kube-prometheus-stack
+helm search repo prometheus-community/kube-prometheus-stack --versions
+helm install prometheus prometheus-community/kube-prometheus-stack --version 45.7.1 --namespace monitoring --create-namespace
+kubectl get pods -n monitoring
+kubectl get pods svc
+kubectl get svc
+kubectl get svc -n monitoring
+kubectl edit svc prometheus-operated
+kubectl get svc -n monitoring
+kubectl edit svc prometheus-kube-prometheus-prometheus -n monitoring
+kubectl get svc -n monitoring
+kubectl edit svc prometheus-grafana -n monitoring
+kubectl get svc -n monitoring
+kubectl get secret -n monitoring prometheus-grafana -o jsonpath="{.data.admin-password}" | base64 --decode
+history
+
+
+
+
+**************************
+Day - 12 | 18th Dec. 2025 
+**************************
+
+	Monitoring :::
+	
+		Monitoring Tools - Prometheus/Grafana 
+		
+		Daemonsets :
+		
+			Logger Tools / Reporting Tools / Monitoring Tools 
+			
+			
+		Enterprise Level ::
+			Monitoring Tools :
+			
+				Install and Configure the Monitoring Tools:
+				
+				Prometheus/Grafana 
+				Dynatrace 
+			
+		Prometheus :::
+
+			- Monitoring Tool 
+			
+			Infra-Structure Monitoring 
+			
+			This runs as a service in a server 
+			
+			Target Servers are the servers that are to be monitored by Prometheus Server.
+			
+			
+			wget https://github.com/prometheus/prometheus/releases/download/v3.0.1/prometheus-3.0.1.linux-amd64.tar.gz
+			
+			
+		
+		
+		Scaling :
+		
+			- Horizontal Scaling 		Manual Process 
+				
+				initial no. of pod replica count : 5 +++ 50
+			
+			- Vertical Scaling :
+			
+				Scaling the Resources(cpu/memory) to execute the pod replicas 
+				
+				
+			HorizontalPodAutoScaler  - basedon monitoring metrics
+
+			VerticalPodAutoscaler
+			
+			
+			
+		Secret :::
+		
+			- Volume to maintain the sensitive data 
+			
+		Security vaults!
+				
+				
+			
