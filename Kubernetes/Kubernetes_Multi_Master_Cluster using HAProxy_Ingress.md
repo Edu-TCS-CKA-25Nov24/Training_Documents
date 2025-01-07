@@ -2,15 +2,15 @@
 
 ### What is Kubeadm ? 
 
-Kubeadm is a tool built to provide kubeadm init and kubeadm join as best-practice “fast paths” for creating Kubernetes clusters. kubeadm performs the actions necessary to get a minimum viable cluster up and running. By design, it cares only about bootstrapping, not about provisioning machines. With kubeadm, your cluster should pass Kubernetes Conformance tests. You can find more details about the conformance tests at https://github.com/cncf/k8s-conformance
+Kubeadm is a tool built to provide kubeadm init and kubeadm join as best-practice “fast paths” for creating Kubernetes clusters. kubeadm performs the actions necessary to get a minimum viable cluster up and running. By design, it cares only about bootstrapping, not about provisioning machines. 
 
 ### Pre-requisite 
 
 For this demo, we will use 2 master and 2 worker node to create a multi master kubernetes cluster using kubeadm installation tool. Below are the pre-requisite requirements for the installation:
 
-* 2 machines for master, ubuntu 16.04+, 2 CPU, 2 GB RAM, 10 GB storage
-* 2 machines for worker, ubuntu 16.04+, 1 CPU, 2 GB RAM, 10 GB storage
-* 1 machine for loadbalancer, ubuntu 16.04+, 1 CPU, 2 GB RAM, 10 GB storage
+* 2 machines for master, ubuntu 
+* 2 machines for worker, ubuntu 
+* 1 machine for loadbalancer, ubuntu 
 * All machines must be accessible on the network. For cloud users - single VPC for all machines 
 * sudo privilege 
 * ssh access from loadbalancer node to all machines (master & worker). 
