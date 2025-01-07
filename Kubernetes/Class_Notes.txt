@@ -1024,4 +1024,42 @@ Day - 12 | 18th Dec. 2025
 		Security vaults!
 				
 				
+
+
+**************************
+Day - 13 | 30th Dec. 2025 
+**************************
+
+	Ingress Controller!
+	
+		& Load Balancer to set kubernetes cluster 
+		
+		Multi - Master Cluster 
+		
+		Services :
+		
+			ClusterIP
+			NodePort Services 
+			Load Balancer
 			
+			Ingress Controller 
+			
+			Kubernetes Scheduler ::
+			
+			
+			Node Selector :::
+			
+				- to deploy the pod in specfic node.
+				
+				- set the lable to each node
+				
+				
+				
+			Node Affinity ::
+			
+			Taints 
+					kubectl taint nodes <nodename>
+					
+					
+			Tolerations		
+	
